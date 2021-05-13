@@ -1,0 +1,84 @@
+@charset "utf-8";
+@import "../node_modules/bulma/bulma.sass";
+@import "./variables.scss";
+
+#content {
+    @extend .section;
+    background: $background;
+    color: $text;
+
+    a {
+        color: $doom-blue;
+    }
+}
+
+#table-of-contents {
+    @extend .section;
+    border-bottom: thin solid $grey;
+    margin-bottom: 2rem;
+
+    ul {
+        ul {
+            @extend .section;
+            padding-top: 0;
+            padding-bottom: 0;
+            border-left: 1px dashed $grey;
+        }
+    }
+}
+
+.title {
+    @extend .title;
+    @extend .is-1;
+    color: $text;
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        @extend .title;
+        @extend .is-#{$i};
+        color: $text;
+    }
+}
+
+.outline-2 {
+    @extend .section;
+    font-size: $size-6;
+}
+
+code {
+    background: $background;
+    border: 1px inset $grey;
+    border-radius: 5px;
+}
+
+p {
+    margin-bottom: 0.5em;
+}
+
+blockquote {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    padding-left: 15px;
+    border-left: 3px solid $grey;
+}
+
+ul.org-ul {
+    list-style-image: url('../img/bullet.svg');
+    li {
+        @extend .section;
+        padding: 1em;
+    }
+
+    & li::marker {
+        background-image: url("../img/bullet.svg");
+        color: $doom-blue;
+    }
+}
+
+#postamble {
+    @extend .footer;
+    background: $grey-darker;
+    color: $grey-light;
+}

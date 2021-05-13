@@ -1,0 +1,7 @@
+#+TITLE:README
+#+AUTHOR:LiquidZulu
+/This file is best viewed in [[https://www.gnu.org/software/emacs/][emacs]]!/
+* level 1
+** level 2
+*** level 3
+**** level 4
