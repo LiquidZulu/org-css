@@ -1,6 +1,12 @@
 @charset "utf-8";
 @import "../node_modules/bulma/bulma.sass";
 @import "./variables.scss";
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/mononoki.min.css");
+
+@font-face {
+    font-family: "icons";
+    src: url("https://raw.githubusercontent.com/LiquidZulu/org-css/main/img/icons.woff") format('woff');
+}
 
 #content {
     @extend .section;
@@ -33,23 +39,40 @@
     color: $text;
 }
 
-@for $i from 1 through 6 {
+@for $i from 1 through 4 {
     h#{$i} {
         @extend .title;
         @extend .is-#{$i};
+        margin-top: 1.5em;
+        padding-bottom: 1;
+        color: $text;
+    }
+}
+
+@for $i from 5 through 512 {
+    h#{$i} {
+        font-size: $size-4;
+        font-weight: 600;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
         color: $text;
     }
 }
 
 .outline-2 {
     @extend .section;
-    font-size: $size-6;
+    font-size: $size-5 * 1.2;
+    text-align: justify;
+    padding-top: 0;
+    border-bottom: thin dotted $grey;
+    margin-bottom: 2rem;
 }
 
 code {
     background: $background;
     border: 1px inset $grey;
     border-radius: 5px;
+    font-family: mononoki;
 }
 
 p {
@@ -57,27 +80,62 @@ p {
 }
 
 blockquote {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 50px;
-    padding-left: 15px;
-    border-left: 3px solid $grey;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: 0.5em;
+    padding-left: 0.5em;
+    border-left: 3px solid $fg-alt;
+    p{
+        margin-bottom: 1em;
+    }
 }
 
 ul {
     &.org-ul {
         
         li {
-            @extend .section;
-            padding: 1em;
+            margin-bottom: 2em;
         }
 
         & li::before {
-            content: url("https://raw.githubusercontent.com/LiquidZulu/org-css/main/img/bullet-doom.svg");
-            display: flex;
-            max-width: $size-6 * 1.5;
-            left: -$size-6 * 1.5;
+            content: "A";
+            color: $doom-blue;
+            font-family: icons;
+            font-size: $size-5 * 1.2;
+            margin-right: 0.5em;
         }
+    }
+}
+
+table {
+    
+    @extends .container;
+    margin: 5vw;
+    width: 80vw;
+    text-align: center;
+    border: thin solid $fg-alt;
+    font-size: $size-5;
+    font-family: mononoki;
+
+    col {
+        border: thin solid $fg-alt;
+    }
+
+    tbody {
+        color: $text;
+    }
+
+    th, td {
+        padding: 0.4em;
+        color: $doom-violet;
+    }
+}
+
+.org-src-container {
+    pre {
+        font-family: mononoki;
+        background: $bg-alt;
+        box-shadow: 0 0 0 #00000000;
     }
 }
 

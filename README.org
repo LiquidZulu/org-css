@@ -1,7 +1,86 @@
-#+TITLE:README
+#+TITLE:org-css
 #+AUTHOR:LiquidZulu
-/This file is best viewed in [[https://www.gnu.org/software/emacs/][emacs]]!/
-* level 1
-** level 2
-*** level 3
-**** level 4
+#+HTML_HEAD:<link rel="stylesheet" type="text/css" href="https://github.com/LiquidZulu/org-css/blob/main/css/org.css"/>
+/This package is still a WIP, but I think it's better than the others so I'm publishing/
+
+* Introduction
+=org-css= is an =ox-html= theme designed to complement [[https://github.com/hlissner/emacs-doom-themes/blob/master/themes/doom-one-theme.el][doom-one]]. It is written in SCSS for added customisability.
+** Motivation
+I write a lot of things in orgmode and I am often dissapointed with the end product that is exported. This is no issue for me (why would I leave orgmode?), but I often need to share the files with others and this becomes challenging when they don't use emacs (yet).
+
+So what should I export to? The obvious answer would be .md and this is what I tried at first but it has some major drawbacks:
++ the internal links arent synched with org
++ it misses a lot of detail, i.e. no date, no author, some other things I'm forgetting
++ Styling is left up to whatever renderer is on the client
+
+Markdown ended up not being worth it, so I just published bare orgfiles with a disclaimer that yelled at people for not reading them with emacs. But then I decided to try out html exports, as it's even more accessible and it's more customisable.
+
+The issue was that =ox-html= is anything but easy on the eyes out of the box, so I dug around for a nice stylesheet and couldnt find anything that fit my needs, so here we are.
+* Installation
+To use this stylesheet you must put this at the start of your orgfiles:
+#+begin_src org
+#+HTML_HEAD:<link rel="stylesheet" type="text/css" href="https://github.com/LiquidZulu/org-css/blob/main/css/org.css"/>
+#+end_src
+If you dont want to add that by hand every time you make a new .org this little doo dad is what I use for my preambles, edit is as your needs dictate, and stick it in your =.emacs= or your =init.el/org= or whatever you use.
+#+begin_src elisp
+(setq
+ org-css "file:///e:/emacs/documents/org-css/css/org.css") ;; you'll want to change this
+(setq
+ org-preamble (format
+               "#+TITLE:\n#+AUTHOR:LiquidZulu\n#+BIBLIOGRAPHY:e:/Zotero/library.bib\n#+PANDOC_OPTIONS: csl:e:/Zotero/styles/australasian-physical-and-engineering-sciences-in-medicine.csl\n#+HTML_HEAD:<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\"/>\n/This file is best viewed in [[https://www.gnu.org/software/emacs/][emacs]]!/"
+               org-css))
+
+(add-hook 'find-file-hook
+          (lambda ()
+            (if
+                (string=
+                 (substring
+                  (buffer-name)
+                  (if (> (length (buffer-name)) 3) (- (length (buffer-name)) 3) 0)
+                  nil)
+                 "org")
+                (if
+                    (=
+                     (buffer-size)
+                     0)
+                    ((lambda ()
+                       (insert org-preamble)
+
+                                        ; navigate point to end of #+TITLE:, doesnt work when launching from gitbash for some reason, point just moves right back down after doom does something
+                       (goto-line 1)
+                       (forward-word)
+                       (forward-char)))))))
+#+end_src
+
+It's also a good idea to up =org-export-headline-levels=, like so:
+#+begin_src elisp
+(setq org-export-headline-levels 512) ;; you probably don't need 512, but I like it this way
+#+end_src
+* Demo
+This is some text, introducing a blockquote:
+#+begin_quote
+Don't trust everything you read on the internet
+---Abraham Lincoln
+#+end_quote
+** Second level heading
+| wow  | cool | it's    | a       | table         |
+|------+------+---------+---------+---------------|
+| john | has  | some    | money   | xyzzy         |
+| 892  | 999  | =peter= | *piper* | /picked/      |
+| a    | peck | of      | pickled | peppers[fn:1] |
+
+*** TODO Title with a todo
+#+CAPTION:Richard Stallman, creator of Windows.
+#+NAME:Figure 1
+[[./img/stallman.png]]
+*** TODO this one is a shopping list [1/4]
+SCHEDULED: <2021-05-29 Sat>
++ [ ] eggs
++ [ ] bacon
++ [ ] cheese
++ [X] beer
+
+* Footnotes
+
+[fn:1]
+There are footnotes too!

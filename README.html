@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-05-12 Wed 18:50 -->
+<!-- 2021-05-13 Thu 14:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>README</title>
+<title>org-css</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="LiquidZulu" />
 <style type="text/css">
@@ -193,6 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="https://github.com/LiquidZulu/org-css/blob/main/css/org.css"/>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -218,16 +219,23 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">README</h1>
+<h1 class="title">org-css</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf1cdb06">1. level 1</a>
+<li><a href="#org18c75fc">1. Introduction</a>
 <ul>
-<li><a href="#orgbc297dc">1.1. level 2</a>
+<li><a href="#org9b3cc77">1.1. Motivation</a></li>
+</ul>
+</li>
+<li><a href="#org00bcc4e">2. Installation</a></li>
+<li><a href="#orgb02cde7">3. Demo</a>
 <ul>
-<li><a href="#org806e341">1.1.1. level 3</a></li>
+<li><a href="#org1ad8ab6">3.1. Second level heading</a>
+<ul>
+<li><a href="#org00a52b8">3.1.1. <span class="todo TODO">TODO</span> Title with a todo</a></li>
+<li><a href="#org5555cce">3.1.2. <span class="todo TODO">TODO</span> this one is a shopping list <code>[1/4]</code></a></li>
 </ul>
 </li>
 </ul>
@@ -236,30 +244,200 @@
 </div>
 </div>
 <p>
-<i>This file is best viewed in <a href="https://www.gnu.org/software/emacs/">emacs</a>!</i>
+<i>This package is still a WIP, but I think it&rsquo;s better than the others so I&rsquo;m publishing</i>
 </p>
-<div id="outline-container-orgf1cdb06" class="outline-2">
-<h2 id="orgf1cdb06"><span class="section-number-2">1</span> level 1</h2>
+
+<div id="outline-container-org18c75fc" class="outline-2">
+<h2 id="org18c75fc"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+<code>org-css</code> is an <code>ox-html</code> theme designed to complement <a href="https://github.com/hlissner/emacs-doom-themes/blob/master/themes/doom-one-theme.el">doom-one</a>. It is written in SCSS for added customisability.
+</p>
 </div>
-<div id="outline-container-orgbc297dc" class="outline-3">
-<h3 id="orgbc297dc"><span class="section-number-3">1.1</span> level 2</h3>
+<div id="outline-container-org9b3cc77" class="outline-3">
+<h3 id="org9b3cc77"><span class="section-number-3">1.1</span> Motivation</h3>
 <div class="outline-text-3" id="text-1-1">
+<p>
+I write a lot of things in orgmode and I am often dissapointed with the end product that is exported. This is no issue for me (why would I leave orgmode?), but I often need to share the files with others and this becomes challenging when they don&rsquo;t use emacs (yet).
+</p>
+
+<p>
+So what should I export to? The obvious answer would be .md and this is what I tried at first but it has some major drawbacks:
+</p>
+<ul class="org-ul">
+<li>the internal links arent synched with org</li>
+<li>it misses a lot of detail, i.e. no date, no author, some other things I&rsquo;m forgetting</li>
+<li>Styling is left up to whatever renderer is on the client</li>
+</ul>
+
+<p>
+Markdown ended up not being worth it, so I just published bare orgfiles with a disclaimer that yelled at people for not reading them with emacs. But then I decided to try out html exports, as it&rsquo;s even more accessible and it&rsquo;s more customisable.
+</p>
+
+<p>
+The issue was that <code>ox-html</code> is anything but easy on the eyes out of the box, so I dug around for a nice stylesheet and couldnt find anything that fit my needs, so here we are.
+</p>
 </div>
-<div id="outline-container-org806e341" class="outline-4">
-<h4 id="org806e341"><span class="section-number-4">1.1.1</span> level 3</h4>
-<div class="outline-text-4" id="text-1-1-1">
-</div>
-<ol class="org-ol">
-<li><a id="org06688dc"></a>level 4<br /></li>
-</ol>
 </div>
 </div>
+<div id="outline-container-org00bcc4e" class="outline-2">
+<h2 id="org00bcc4e"><span class="section-number-2">2</span> Installation</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+To use this stylesheet you must put this at the start of your orgfiles:
+</p>
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #83898d;">#+HTML_HEAD:&lt;link rel="stylesheet" type="text/css" href="<a href="https://github.com/LiquidZulu/org-css/blob/main/css/org.css&quot;/">https://github.com/LiquidZulu/org-css/blob/main/css/org.css"/</a>&gt;</span>
+</pre>
+</div>
+<p>
+If you dont want to add that by hand every time you make a new .org this little doo dad is what I use for my preambles, edit is as your needs dictate, and stick it in your <code>.emacs</code> or your <code>init.el/org</code> or whatever you use.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span>
+ org-css <span style="color: #98be65;">"file:///e:/emacs/documents/org-css/css/org.css"</span><span style="color: #51afef;">)</span> <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">you'll want to change this</span>
+<span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span>
+ org-preamble <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">format</span>
+               <span style="color: #98be65;">"#+TITLE:\n#+AUTHOR:LiquidZulu\n#+BIBLIOGRAPHY:e:/Zotero/library.bib\n#+PANDOC_OPTIONS: csl:e:/Zotero/styles/australasian-physical-and-engineering-sciences-in-medicine.csl\n#+HTML_HEAD:&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"%s\"/&gt;\n/This file is best viewed in [[https://www.gnu.org/software/emacs/][emacs]]!/"</span>
+               org-css<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+
+<span style="color: #51afef;">(</span><span style="color: #c678dd;">add-hook</span> <span style="color: #51afef;">'</span><span style="color: #dcaeea;">find-file-hook</span>
+          <span style="color: #c678dd;">(</span><span style="color: #51afef;">lambda</span> <span style="color: #98be65;">()</span>
+            <span style="color: #98be65;">(</span><span style="color: #51afef;">if</span>
+                <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">string=</span>
+                 <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">substring</span>
+                  <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">buffer-name</span><span style="color: #98be65;">)</span>
+                  <span style="color: #98be65;">(</span><span style="color: #51afef;">if</span> <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">&gt;</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">length</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">buffer-name</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span> <span style="color: #da8548; font-weight: bold;">3</span><span style="color: #51afef;">)</span> <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">-</span> <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">length</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">buffer-name</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span> <span style="color: #da8548; font-weight: bold;">3</span><span style="color: #51afef;">)</span> <span style="color: #da8548; font-weight: bold;">0</span><span style="color: #98be65;">)</span>
+                  nil<span style="color: #c678dd;">)</span>
+                 <span style="color: #98be65;">"org"</span><span style="color: #51afef;">)</span>
+                <span style="color: #51afef;">(</span><span style="color: #51afef;">if</span>
+                    <span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">=</span>
+                     <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">buffer-size</span><span style="color: #98be65;">)</span>
+                     <span style="color: #da8548; font-weight: bold;">0</span><span style="color: #c678dd;">)</span>
+                    <span style="color: #c678dd;">(</span><span style="color: #98be65;">(</span><span style="color: #51afef;">lambda</span> <span style="color: #51afef;">()</span>
+                       <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">insert</span> org-preamble<span style="color: #51afef;">)</span>
+
+                                        <span style="color: #5B6268;">; </span><span style="color: #5B6268;">navigate point to end of #+TITLE:, doesnt work when launching from gitbash for some reason, point just moves right back down after doom does something</span>
+                       <span style="color: #51afef;">(</span><span style="color: #c678dd;">goto-line</span> <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #51afef;">)</span>
+                       <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">forward-word</span><span style="color: #51afef;">)</span>
+                       <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">forward-char</span><span style="color: #51afef;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+It&rsquo;s also a good idea to up <code>org-export-headline-levels</code>, like so:
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">setq</span> <span style="color: #dcaeea;">org-export-headline-levels</span> <span style="color: #da8548; font-weight: bold;">512</span><span style="color: #51afef;">)</span> <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">you probably don't need 512, but I like it this way</span>
+</pre>
 </div>
 </div>
+</div>
+<div id="outline-container-orgb02cde7" class="outline-2">
+<h2 id="orgb02cde7"><span class="section-number-2">3</span> Demo</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+This is some text, introducing a blockquote:
+</p>
+<blockquote>
+<p>
+Don&rsquo;t trust everything you read on the internet
+&#x2014;Abraham Lincoln
+</p>
+</blockquote>
+</div>
+<div id="outline-container-org1ad8ab6" class="outline-3">
+<h3 id="org1ad8ab6"><span class="section-number-3">3.1</span> Second level heading</h3>
+<div class="outline-text-3" id="text-3-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">wow</th>
+<th scope="col" class="org-left">cool</th>
+<th scope="col" class="org-left">it&rsquo;s</th>
+<th scope="col" class="org-left">a</th>
+<th scope="col" class="org-left">table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">john</td>
+<td class="org-left">has</td>
+<td class="org-left">some</td>
+<td class="org-left">money</td>
+<td class="org-left">xyzzy</td>
+</tr>
+
+<tr>
+<td class="org-left">892</td>
+<td class="org-left">999</td>
+<td class="org-left"><code>peter</code></td>
+<td class="org-left"><b>piper</b></td>
+<td class="org-left"><i>picked</i></td>
+</tr>
+
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">peck</td>
+<td class="org-left">of</td>
+<td class="org-left">pickled</td>
+<td class="org-left">peppers<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-org00a52b8" class="outline-4">
+<h4 id="org00a52b8"><span class="section-number-4">3.1.1</span> <span class="todo TODO">TODO</span> Title with a todo</h4>
+<div class="outline-text-4" id="text-3-1-1">
+
+<div id="org1bca91c" class="figure">
+<p><img src="./img/stallman.png" alt="stallman.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Richard Stallman, creator of Windows.</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5555cce" class="outline-4">
+<h4 id="org5555cce"><span class="section-number-4">3.1.2</span> <span class="todo TODO">TODO</span> this one is a shopping list <code>[1/4]</code></h4>
+<div class="outline-text-4" id="text-3-1-2">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> eggs</li>
+<li class="off"><code>[&#xa0;]</code> bacon</li>
+<li class="off"><code>[&#xa0;]</code> cheese</li>
+<li class="on"><code>[X]</code> beer</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+There are footnotes too!
+</p></div></div>
+
+
+</div>
+</div></div>
 <div id="postamble" class="status">
 <p class="author">Author: LiquidZulu</p>
-<p class="date">Created: 2021-05-12 Wed 18:50</p>
+<p class="date">Created: 2021-05-13 Thu 14:11</p>
 </div>
 </body>
 </html>
