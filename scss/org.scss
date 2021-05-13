@@ -64,21 +64,25 @@ blockquote {
     border-left: 3px solid $grey;
 }
 
-ul.org-ul {
-    list-style-image: url('../img/bullet.svg');
-    li {
-        @extend .section;
-        padding: 1em;
-    }
+ul {
+    &.org-ul {
+        
+        li {
+            @extend .section;
+            padding: 1em;
+        }
 
-    & li::marker {
-        background-image: url("../img/bullet.svg");
-        color: $doom-blue;
+        & li::before {
+            content: url("https://raw.githubusercontent.com/LiquidZulu/org-css/main/img/bullet-doom.svg");
+            display: flex;
+            max-width: $size-6 * 1.5;
+            left: -$size-6 * 1.5;
+        }
     }
 }
 
 #postamble {
     @extend .footer;
-    background: $grey-darker;
-    color: $grey-light;
+    background: $bg-alt;
+    color: $fg-alt;
 }
