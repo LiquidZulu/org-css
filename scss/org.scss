@@ -107,6 +107,25 @@ ul {
     }
 }
 
+ol {
+    &.org-ol {
+
+        li {
+            counter-increment: list;
+            list-style-type: none;
+            position: relative;
+        }
+
+        & li::before {
+            content: counter(list) ".";
+            color: $doom-blue;
+            font-family: mononoki;
+            font-size: $size-5 * 1.2;
+            margin-right: 0.5em;
+        }
+    }
+}
+
 table {
     
     @extends .container;

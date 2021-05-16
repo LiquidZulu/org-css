@@ -11395,6 +11395,18 @@ ul.org-ul li::before {
   font-size: 1.5rem;
   margin-right: 0.5em; }
 
+ol.org-ol li {
+  counter-increment: list;
+  list-style-type: none;
+  position: relative; }
+
+ol.org-ol li::before {
+  content: counter(list) ".";
+  color: #51afef;
+  font-family: mononoki;
+  font-size: 1.5rem;
+  margin-right: 0.5em; }
+
 table {
   @extends .container;
   margin: 5vw;
