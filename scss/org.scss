@@ -1,7 +1,6 @@
 @charset "utf-8";
 @import "../node_modules/bulma/bulma.sass";
-@import "./variables.scss";
-@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/mononoki.min.css");
+@import "./config.scss";
 
 @font-face {
     font-family: "icons";
@@ -10,25 +9,30 @@
 
 #content {
     @extend .section;
-    background: $background;
-    color: $text;
+    background: $background-color;
+    color: $text-color;
+    font-family: $main-font;
 
     a {
-        color: $doom-blue;
+        color: $link-color;
     }
 }
 
 #table-of-contents {
     @extend .section;
-    border-bottom: thin solid $grey;
+    border-bottom: $toc-divider;
     margin-bottom: 2rem;
+
+    h2 {
+        color: $text-color;
+    }
 
     ul {
         ul {
             @extend .section;
             padding-top: 0;
             padding-bottom: 0;
-            border-left: 1px dashed $grey;
+            border-left: $toc-rule;
         }
     }
 }
@@ -36,7 +40,7 @@
 .title {
     @extend .title;
     @extend .is-1;
-    color: $text;
+    color: $title-color;
 }
 
 @for $i from 1 through 4 {
@@ -64,27 +68,23 @@
     font-size: $size-5 * 1.2;
     text-align: justify;
     padding-top: 0;
-    border-bottom: thin dotted $grey;
+    border-bottom: $outline-2-divider;
     margin-bottom: 2rem;
 
-    h2  { color: $doom-red       }
-    h3  { color: $doom-orange    }
-    h4  { color: $doom-green     }
-    h5  { color: $doom-teal      }
-    h6  { color: $doom-yellow    }
-    h7  { color: $doom-blue      }
-    h8  { color: $doom-dark-blue }
-    h9  { color: $doom-magenta   }
-    h10 { color: $doom-violet    }
-    h11 { color: $doom-cyan      }
-    h12 { color: $doom-dark-cyan }
+    @if $rainbow-titles {
+        @for $i from 2 through $rainbow-titles-depth {
+            h#{$i} {
+                @extend rt-h#{$i};
+            }
+        }   
+    }
 }
 
 code {
-    background: $background;
-    border: 1px inset $grey;
-    border-radius: 5px;
-    font-family: mononoki;
+    background: $code-background-color;
+    border: $code-border;
+    border-radius: $code-border-radius;
+    font-family: $code-font;
 }
 
 p {
@@ -111,7 +111,7 @@ ul {
 
         & li::before {
             content: "A";
-            color: $doom-blue;
+            color: $list-bullet-color;
             font-family: icons;
             font-size: $size-5 * 1.2;
             margin-right: 0.5em;
@@ -130,8 +130,8 @@ ol {
 
         & li::before {
             content: counter(list) ".";
-            color: $doom-blue;
-            font-family: mononoki;
+            color: $list-bullet-color;
+            font-family: $list-bullet-font;
             font-size: $size-5 * 1.2;
             margin-right: 0.5em;
         }
