@@ -11366,6 +11366,28 @@ h512 {
   padding-top: 0;
   border-bottom: thin dotted #7a7a7a;
   margin-bottom: 2rem; }
+  .outline-2 h2 {
+    color: #ff6c6b; }
+  .outline-2 h3 {
+    color: #da8548; }
+  .outline-2 h4 {
+    color: #98be65; }
+  .outline-2 h5 {
+    color: #4db5bd; }
+  .outline-2 h6 {
+    color: #ECBE7B; }
+  .outline-2 h7 {
+    color: #51afef; }
+  .outline-2 h8 {
+    color: #2257A0; }
+  .outline-2 h9 {
+    color: #c678dd; }
+  .outline-2 h10 {
+    color: #a9a1e1; }
+  .outline-2 h11 {
+    color: #46D9FF; }
+  .outline-2 h12 {
+    color: #5699AF; }
 
 code {
   background: #282c34;
