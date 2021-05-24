@@ -41,6 +41,19 @@
     @extend .title;
     @extend .is-1;
     color: $title-color;
+
+    .subtitle {
+        @extend .title;
+        @extend .is-4;
+        margin-top: 2em;
+        color: $subtitle-color;
+    }
+}
+
+.footnotes {
+    @extend .title;
+    @extend .is-1;
+    color: $footnotes-title-color;
 }
 
 @for $i from 1 through 4 {
