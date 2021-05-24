@@ -45,8 +45,9 @@
     .subtitle {
         @extend .title;
         @extend .is-4;
-        margin-top: 2em;
         color: $subtitle-color;
+        display: block;
+        margin-top: 1em;
     }
 }
 
@@ -149,6 +150,10 @@ ol {
             margin-right: 0.5em;
         }
     }
+}
+
+.figure {
+    font-family: $figure-font;
 }
 
 table {

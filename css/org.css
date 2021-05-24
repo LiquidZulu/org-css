@@ -15599,8 +15599,9 @@ rt-h12, .outline-2 h12 {
 .title, .title .subtitle, .footnotes, h1, h2, h3, h4 {
   color: #bbc2cf; }
   .title .subtitle, .footnotes .subtitle, h1 .subtitle, h2 .subtitle, h3 .subtitle, h4 .subtitle {
-    margin-top: 2em;
-    color: #5B6268; }
+    color: #5B6268;
+    display: block;
+    margin-top: 1em; }
 
 .footnotes {
   color: #bbc2cf; }
@@ -19227,6 +19228,9 @@ ol.org-ol li::before {
   font-family: mononoki;
   font-size: 1.5rem;
   margin-right: 0.5em; }
+
+.figure {
+  font-family: mononoki; }
 
 table {
   @extends .container;
