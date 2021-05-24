@@ -37,6 +37,13 @@
     }
 }
 
+.org-disclaimer {
+    /*
+     * wrap what you dont want exported in org-disclaimer, with `C-c C-, SPC org-disclaimer`, I use this for my /This file is best viewed in emacs!/ disclaimer, hence the name.
+     */
+    display: none;
+}
+
 .title {
     @extend .title;
     @extend .is-1;

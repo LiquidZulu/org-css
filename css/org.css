@@ -15596,6 +15596,12 @@ rt-h12, .outline-2 h12 {
     padding-bottom: 0;
     border-left: 1px dashed #7a7a7a; }
 
+.org-disclaimer {
+  /*
+     * wrap what you dont want exported in org-disclaimer, with `C-c C-, SPC org-disclaimer`, I use this for my /This file is best viewed in emacs!/ disclaimer, hence the name.
+     */
+  display: none; }
+
 .title, .title .subtitle, .footnotes, h1, h2, h3, h4 {
   color: #bbc2cf; }
   .title .subtitle, .footnotes .subtitle, h1 .subtitle, h2 .subtitle, h3 .subtitle, h4 .subtitle {
